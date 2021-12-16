@@ -8,14 +8,7 @@ pipeline {
   // environment {
     //  dockerhub=credentials('dockerhub')
  //  }
-   stages{
-       stage("clean"){
-      
-         steps
-            {
-                sh 'mvn clean'
-            }
-       }
+  
 
    stage("packaging"){
       when{
