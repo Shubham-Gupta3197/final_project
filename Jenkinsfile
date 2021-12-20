@@ -47,5 +47,11 @@ pipeline {
                 sh 'docker push shubham3197/capstone:1.01 '
             }
         }
+      
+      stage('Deploy App') {
+      steps {
+         kubernetesDeploy configs: '**/statefullset.yaml', kubeConfig: [path: ''], kubeconfigId: 'kube', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
+            }
+         }
    }
 }
