@@ -47,7 +47,7 @@ pipeline {
                 sh 'docker push shubham3197/capstone:1.01 '
             }
         }
-      
+     
       stage('Deploy App') {
          when{
                 branch "prod"
