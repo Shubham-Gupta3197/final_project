@@ -49,6 +49,9 @@ pipeline {
         }
       
       stage('Deploy App') {
+         when{
+                branch "prod"
+         }
       steps {
          kubernetesDeploy configs: '**/statefullset.yaml', kubeConfig: [path: ''], kubeconfigId: 'kube', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']
             }
